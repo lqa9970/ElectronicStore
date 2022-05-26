@@ -1,6 +1,18 @@
-# Fullstack-Typescript-Project
+# E-commerce-Fullstack-Typescript-Project
 
-First choose the project topic. The topics and assignment can be found in Fullstack assignment presentation on the shared drive.
+## Planning
+
+1.  [✔] Project init
+2.  [✔] Explore files in the template
+3.  [✔] Config routers
+4.  [✔] Create MongoDB models/schema
+5.  [✔] Create services
+6.  [✔] Create controllers
+7.  [✔] Setup CRUD operations endpoints
+8.  [✘] Add needed middleware(s)
+9.  [✘] Client side/Frontend implementation
+10. [✘] Security(?)
+11. [✘] Testing(?)
 
 ## Prerequisites
 
