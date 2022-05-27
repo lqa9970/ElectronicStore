@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import movieRouter from './routers/movie'
 import productRouter from './routers/product'
 import userRouter from './routers/user'
+import adminRouter from './routers/admin'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
 
@@ -19,9 +20,10 @@ app.use(apiContentType)
 app.use(express.json())
 
 // Set up routers
-app.use('/movies', movieRouter)
-app.use('/products', productRouter)
-app.use('/users', userRouter)
+app.use('/api/v1/movies', movieRouter)
+app.use('/api/v1/products', productRouter)
+app.use('/api/v1/users', userRouter)
+app.use('/api/v1/admins', adminRouter)
 
 // Custom API error handler
 app.use(apiErrorHandler)

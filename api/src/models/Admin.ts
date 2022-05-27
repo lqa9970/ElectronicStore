@@ -1,13 +1,13 @@
 import mongoose, { Document } from 'mongoose'
 
-export type UserDocument = Document & {
+export type AdminDocument = Document & {
   firstName: string
   lastName: string
   email: string
   isAdmin: boolean
 }
 
-const userSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -28,4 +28,4 @@ const userSchema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model<UserDocument>('User', userSchema)
+export default mongoose.model<AdminDocument>('Admin', adminSchema)

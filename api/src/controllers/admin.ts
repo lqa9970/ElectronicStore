@@ -1,18 +1,18 @@
 import { Request, Response, NextFunction } from 'express'
 
-import User from '../models/User'
-import UserService from '../services/user'
+import Admin from '../models/Admin'
+import AdminService from '../services/admin'
 import { BadRequestError } from '../helpers/apiError'
 
-export const getUser = async (
+export const getAdmin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const userId = req.params.userId
-    await UserService.findUserById(userId)
-    res.json(userId)
+    const adminId = req.params.adminId
+    await AdminService.findAdminById(adminId)
+    res.json(adminId)
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -22,14 +22,14 @@ export const getUser = async (
   }
 }
 
-export const getAllUsers = async (
+export const getAllAdmins = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const users = await UserService.findAllUser()
-    res.json(users)
+    const allAdmins = await AdminService.findAllAdmin()
+    res.json(allAdmins)
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -39,15 +39,15 @@ export const getAllUsers = async (
   }
 }
 
-export const createUser = async (
+export const createAdmin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const { firstName, lastName, email, isAdmin } = req.params
-    const user = new User({ firstName, lastName, email, isAdmin })
-    res.json(await UserService.createUser(user))
+    const admin = new Admin({ firstName, lastName, email, isAdmin })
+    res.json(await AdminService.createAdmin(admin))
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -57,16 +57,16 @@ export const createUser = async (
   }
 }
 
-export const updateUser = async (
+export const updateAdmin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const update = req.body
-    const userId = req.params.userId
-    const updatedUser = await UserService.updateUserInfo(userId, update)
-    res.json(updatedUser)
+    const adminId = req.params.adminId
+    const updatedAdmin = await AdminService.updateAdminInfo(adminId, update)
+    res.json(updatedAdmin)
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -76,14 +76,14 @@ export const updateUser = async (
   }
 }
 
-export const deleteUser = async (
+export const deleteAdmin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const userId = req.params.userId
-    await UserService.deleteUser(userId)
+    const adminId = req.params.adminId
+    await AdminService.deleteAdmin(adminId)
     res.status(204).end()
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
