@@ -1,0 +1,11 @@
+@import "../../../styles/mixins";
+
+.Product-table {
+  margin: 5rem 0;
+  table {
+    margin: 0;
+    img {
+      width: 5vw;
+    }
+  }
+}

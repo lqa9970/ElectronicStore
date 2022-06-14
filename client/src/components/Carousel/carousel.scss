@@ -1,0 +1,15 @@
+.carousel__page {
+  padding-top: 90px;
+}
+.carousel {
+  height: 30rem;
+  margin: auto;
+  width: 60%;
+  max-width: 100vw;
+  &__img {
+    display: block;
+    margin: auto;
+    margin-bottom: 10rem;
+    max-height: 20rem;
+  }
+}

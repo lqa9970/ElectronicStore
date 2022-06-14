@@ -1,0 +1,33 @@
+@import "../../styles/mixins";
+
+.nav__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  text-decoration: none;
+  background-color: $orange;
+  box-shadow: 0px 2px 3px gray;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  color: #000;
+  align-items: center;
+  z-index: 999;
+  &__left {
+    padding: 0 1rem;
+  }
+  &__mid {
+    font-size: 25px;
+    margin-left: 3rem;
+    &__dark {
+      color: $dark;
+    }
+    &__light {
+      color: $light;
+    }
+  }
+  &__right {
+    padding: 0 1rem;
+  }
+}

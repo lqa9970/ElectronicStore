@@ -1,12 +1,12 @@
 import mongoose, { Document } from 'mongoose'
+import { Role } from '../types/types'
 
 export type AdminDocument = Document & {
   firstName: string
   lastName: string
   email: string
-  isAdmin: boolean
+  role: Role
 }
-
 const adminSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -22,9 +22,10 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
+  role: {
     type: String,
-    required: true,
+    enum: Role,
+    default: Role.ADMIN,
   },
 })
 

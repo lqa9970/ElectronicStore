@@ -1,0 +1,14 @@
+@import "../styles/mixins";
+
+.productPage {
+  padding: 80px 2rem;
+  height: 100vh;
+  font-size: 20px;
+  &__image {
+    width: 50vw;
+    height: 40vh;
+    img {
+      height: 100%;
+    }
+  }
+}

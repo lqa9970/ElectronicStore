@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 
 import User from '../models/User'
 import UserService from '../services/user'
-import { BadRequestError } from '../helpers/apiError'
+import { BadRequestError, ForbiddenError } from '../helpers/apiError'
 
 export const getUser = async (
   req: Request,
@@ -11,8 +11,8 @@ export const getUser = async (
 ) => {
   try {
     const userId = req.params.userId
-    await UserService.findUserById(userId)
-    res.json(userId)
+    const data = await UserService.findUserById(userId)
+    res.json(data)
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -28,8 +28,12 @@ export const getAllUsers = async (
   next: NextFunction
 ) => {
   try {
-    const users = await UserService.findAllUser()
-    res.json(users)
+    const signedIn = req.user as { role: 'ADMIN' | 'USER' }
+    const isAdmin = signedIn.role === 'ADMIN'
+    if (isAdmin) {
+      const users = await UserService.findAllUser()
+      res.json(users)
+    } else throw new ForbiddenError()
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', err))
@@ -45,8 +49,8 @@ export const createUser = async (
   next: NextFunction
 ) => {
   try {
-    const { firstName, lastName, email, isAdmin } = req.params
-    const user = new User({ firstName, lastName, email, isAdmin })
+    const { firstName, lastName, email, password } = req.body
+    const user = new User({ firstName, lastName, email, password })
     res.json(await UserService.createUser(user))
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {

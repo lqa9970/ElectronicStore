@@ -9,9 +9,9 @@
 5.  [✔] Create services
 6.  [✔] Create controllers
 7.  [✔] Setup CRUD operations endpoints
-8.  [✘] Add needed middleware(s)
-9.  [✘] Client side/Frontend implementation
-10. [✘] Security(?)
+8.  [✔] Add needed middleware(s)
+9.  [✔] Client side/Frontend implementation
+10. [✔] Security(?)
 11. [✘] Testing(?)
 
 ## Prerequisites

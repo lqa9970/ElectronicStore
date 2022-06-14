@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+import Routings from "./Routes";
+import ThemeProvider from "./context/theme-context";
+
+import "./styles/style.scss";
+
+const clientId =
+  "629012642652-p7bi9mupqjphbdmkpgvdtga1dgqb83rj.apps.googleusercontent.com";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId={clientId}>
+      <ThemeProvider>
+        <Routings />
+      </ThemeProvider>
+    </GoogleOAuthProvider>
   );
 }
 

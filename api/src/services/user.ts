@@ -5,8 +5,14 @@ const findUserById = async (userId: string): Promise<UserDocument> => {
   const foundUser = await User.findById(userId)
 
   if (!foundUser) {
-    throw new NotFoundError(`Product ${userId} not found`)
+    throw new NotFoundError(`User ${userId} not found`)
   }
+
+  return foundUser
+}
+
+const findOne = async (email: string): Promise<UserDocument | null> => {
+  const foundUser = await User.findOne({ email })
 
   return foundUser
 }
@@ -39,6 +45,7 @@ const deleteUser = async (userId: string): Promise<UserDocument> => {
 export default {
   createUser,
   findUserById,
+  findOne,
   findAllUser,
   updateUserInfo,
   deleteUser,

@@ -13,7 +13,7 @@ const router = express.Router()
 router.get('/', getAllAdmins)
 router.get('/:adminId', getAdmin)
 router.post('/', createAdmin)
-router.put('/:aminId', updateAdmin)
+router.put('/:adminId', updateAdmin)
 router.delete('/:adminId', deleteAdmin)
 
 export default router

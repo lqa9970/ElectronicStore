@@ -45,8 +45,10 @@ export const createAdmin = async (
   next: NextFunction
 ) => {
   try {
-    const { firstName, lastName, email, isAdmin } = req.params
-    const admin = new Admin({ firstName, lastName, email, isAdmin })
+    // if(req.user.role !== 'ADMIN') throw ForbiddenError()
+
+    const { firstName, lastName, email, password } = req.body
+    const admin = new Admin({ firstName, lastName, email, password })
     res.json(await AdminService.createAdmin(admin))
   } catch (err) {
     if (err instanceof Error && err.name == 'ValidationError') {

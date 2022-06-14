@@ -1,4 +1,5 @@
 import express from 'express'
+import verifyAuth from '../middlewares/verifyAuth'
 
 import {
   getUser,
@@ -10,10 +11,11 @@ import {
 
 const router = express.Router()
 
-router.get('/', getAllUsers)
+// router.get('/', getAllUsers)
+router.get('/', verifyAuth, getAllUsers)
 router.get('/:userId', getUser)
 router.post('/', createUser)
 router.put('/:userId', updateUser)
-router.delete('/:userId', deleteUser)
+router.delete('/:userId', verifyAuth, deleteUser)
 
 export default router

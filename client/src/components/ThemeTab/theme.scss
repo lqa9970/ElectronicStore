@@ -1,0 +1,40 @@
+@import "../../styles/mixins";
+
+.themeTab {
+  height: 100%;
+  &__content {
+    width: 100%;
+    &__dark {
+      width: 100%;
+      background-color: $dark;
+      color: $light;
+      height: 20vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5vh auto;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: $orange;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__light {
+      background-color: $light;
+      width: 100%;
+      color: $dark;
+      height: 20vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5vh auto;
+      border-color: $orange;
+      border-style: solid;
+      border-radius: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

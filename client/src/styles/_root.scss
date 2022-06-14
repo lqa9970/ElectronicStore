@@ -1,0 +1,34 @@
+@import "../styles/mixins";
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-weight: weight(regular);
+  font-family: $font;
+}
+
+.MuiInputBase-input,
+.MuiTypography-root,
+.MuiTableCell-root {
+  font-family: $font !important;
+}
+
+.dark {
+  background-color: $dark;
+  color: $light;
+  // border: 1px solid $light;
+}
+.light {
+  background-color: $light;
+  color: $dark;
+  // border: 1px solid $dark;
+}

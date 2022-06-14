@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Radio+Canada:wght@400;500;700&display=swap");
+
+$midnight_blue: #0a014f;
+$lilac: #cd9fcc;
+$pink: #f6caca;
+$dark: #121212;
+$light: #fae8eb;
+$orange: #e18a07;
+$gray: #c0c0c0;
+
+$font: "Radio Canada", "Montserrat", sans-serif;
+
+$font-weight: (
+  "regular": 400,
+  "medium": 500,
+  "large": 700,
+);
+
+@function weight($weight) {
+  @return map-get($font-weight, $weight);
+}
+
+@mixin sm {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 1101px) {
+    @content;
+  }
+}

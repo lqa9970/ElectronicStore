@@ -1,0 +1,18 @@
+@import "../styles/mixins";
+
+.login {
+  padding: 80px 2rem;
+  height: 100vh;
+  &__button {
+    margin: auto;
+    text-align: center;
+  }
+  &__dark {
+    background-color: $dark;
+    color: $light;
+  }
+  &__light {
+    background-color: $light;
+    color: $dark;
+  }
+}

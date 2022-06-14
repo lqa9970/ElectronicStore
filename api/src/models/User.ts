@@ -1,30 +1,30 @@
 import mongoose, { Document } from 'mongoose'
+import { Role } from '../types/types'
 
 export type UserDocument = Document & {
   firstName: string
   lastName: string
   email: string
-  isAdmin: boolean
+  role: Role
 }
 
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
     index: true,
   },
   lastName: {
     type: String,
-    required: true,
     index: true,
   },
   email: {
     type: String,
     required: true,
   },
-  password: {
+  role: {
     type: String,
-    required: true,
+    enum: Role,
+    default: Role.USER,
   },
 })
 

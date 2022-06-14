@@ -1,12 +1,13 @@
 import Admin, { AdminDocument } from '../models/Admin'
 import { NotFoundError } from '../helpers/apiError'
 
-const findAdminById = async (userId: string): Promise<AdminDocument> => {
-  const foundAdmin = await Admin.findById(userId)
+const findAdmin = async (email: string): Promise<AdminDocument | null> => {
+  const foundAdmin = await Admin.findOne({ email })
 
-  if (!foundAdmin) {
-    throw new NotFoundError(`ADmin ${userId} not found`)
-  }
+  return foundAdmin
+}
+const findAdminById = async (_id: string): Promise<AdminDocument | null> => {
+  const foundAdmin = await Admin.findOne({ _id })
 
   return foundAdmin
 }
@@ -39,6 +40,7 @@ const deleteAdmin = async (userId: string): Promise<AdminDocument> => {
 }
 
 export default {
+  findAdmin,
   findAdminById,
   findAllAdmin,
   createAdmin,
