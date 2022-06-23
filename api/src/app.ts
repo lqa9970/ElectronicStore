@@ -9,6 +9,7 @@ import movieRouter from './routers/movie'
 import productRouter from './routers/product'
 import userRouter from './routers/user'
 import adminRouter from './routers/admin'
+import orderRouter from './routers/Order'
 
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
@@ -48,6 +49,7 @@ app.use('/api/v1/movies', movieRouter)
 app.use('/api/v1/products', productRouter)
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/admins', adminRouter)
+app.use('/api/v1/orders', orderRouter)
 
 // Custom API error handler
 app.use(apiErrorHandler)

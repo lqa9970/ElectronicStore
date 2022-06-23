@@ -6,7 +6,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import ThemeTab from "../ThemeTab";
 // import FavoriteTab from '../FavoriteTab'
-import CartTab from "../CartTab";
 
 import "./Nav.scss";
 import { ThemeContext } from "../../context/theme-context";
